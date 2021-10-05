@@ -10,7 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.sql.Array;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -32,8 +33,15 @@ public class ContractController {
     }
 
     @GetMapping("/api/contract")
-    public List<Contract> getContractsByCustomerName(@RequestParam(name = "ln") String lastName) {
-        return contractService.getContractsByCustomerName(lastName);
+    public List<Contract> getContractsByCustomerName(@RequestParam(name = "customerName") String name) {
+        String[] names = name.split("\\s+");
+        return contractService.getContractsByCustomerName(names[0],names[1]);
+    }
+
+    @GetMapping("/api/contract/date")
+    public List<Contract> getContractsByStartDate(@RequestParam(name ="startDate") String startDate) throws ParseException {
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(startDate);
+        return contractService.getContractsByStartDate(date);
     }
 
     @PostMapping(value = "/api/contract/addContract")
@@ -50,11 +58,12 @@ public class ContractController {
                 newContract.setCustomer(customer);
                 newContract.setStartDate(new SimpleDateFormat("dd/MM/yyyy").parse(date));
                 newContract.setContractType(ContractType.valueOf(contractType));
+                return contractService.createContract(newContract);
             }
         } catch (Exception e) {
             LOG.error("User ID not provided for contract {}", contractName, e);
         }
-        return contractService.createContract(newContract);
+        return null;
     }
 
 }

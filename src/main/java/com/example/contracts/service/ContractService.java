@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,12 +22,12 @@ public class ContractService {
         return contractRepository.findAll();
     }
 
+    public List<Contract> getContractsByCustomerName(String firstName,String lastName) {
+        return contractRepository.findByCustomerFirstNameOrCustomerLastName(firstName,lastName);
+    }
 
-
-    public List<Contract> getContractsByCustomerName(String lastName){
-        return getContracts().stream()
-                .filter(contract -> contract.getCustomer().getLastName().contains(lastName))
-                .collect(Collectors.toList());
+    public List<Contract> getContractsByStartDate(Date date){
+        return contractRepository.findByStartDateAfter(date);
     }
 
     public Contract createContract(Contract contract){
