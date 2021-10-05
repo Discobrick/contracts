@@ -2,7 +2,6 @@ package com.example.contracts.models;
 
 import com.example.contracts.models.enums.CustomerType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;

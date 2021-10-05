@@ -2,9 +2,14 @@ package com.example.contracts.models;
 
 import com.example.contracts.models.enums.ContractType;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity

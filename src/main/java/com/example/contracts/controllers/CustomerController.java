@@ -1,9 +1,6 @@
 package com.example.contracts.controllers;
 
-
-import com.example.contracts.models.Contract;
 import com.example.contracts.models.Customer;
-import com.example.contracts.models.enums.ContractType;
 import com.example.contracts.models.enums.CustomerType;
 import com.example.contracts.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
