@@ -2,6 +2,7 @@ package com.example.contracts.service;
 
 
 import com.example.contracts.models.Customer;
+import com.example.contracts.models.enums.CustomerType;
 import com.example.contracts.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
@@ -28,7 +29,11 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer getCustomerByFirstAndLastName(String firstName, String lastName){
+    public List<Customer> getCustomerByFirstAndLastName(String firstName, String lastName){
         return customerRepository.findByFirstNameAndLastName(firstName,lastName);
+    }
+
+    public List<Customer> getCustomerByType(CustomerType customerType){
+        return customerRepository.findByType(customerType);
     }
 }

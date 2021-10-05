@@ -13,5 +13,6 @@ import java.util.Optional;
 
 
 public interface CustomerRepository extends JpaRepository<Customer,Long > {
-    public Customer findByFirstNameAndLastName(String firstName, String lastName);
+     List<Customer> findByFirstNameAndLastName(String firstName, String lastName);
+     List<Customer> findByType(CustomerType customerType);
 }

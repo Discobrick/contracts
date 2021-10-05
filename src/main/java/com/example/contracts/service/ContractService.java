@@ -1,6 +1,7 @@
 package com.example.contracts.service;
 
 import com.example.contracts.models.Contract;
+import com.example.contracts.models.enums.ContractType;
 import com.example.contracts.repositories.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -28,6 +29,10 @@ public class ContractService {
 
     public List<Contract> getContractsByStartDate(Date date){
         return contractRepository.findByStartDateAfter(date);
+    }
+
+    public List<Contract> getContractsByType(ContractType contractType){
+        return contractRepository.findByContractType(contractType);
     }
 
     public Contract createContract(Contract contract){

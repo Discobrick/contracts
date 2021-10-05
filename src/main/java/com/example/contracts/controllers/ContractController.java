@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.yaml.snakeyaml.util.EnumUtils;
 
 import java.sql.Array;
 import java.util.Date;
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
+@RequestMapping("/contract")
 public class ContractController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContractController.class);
@@ -27,24 +29,31 @@ public class ContractController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping("/api/contract/all")
+    @GetMapping("/all")
     public List<Contract> getAllContracts() {
         return contractService.getContracts();
     }
 
-    @GetMapping("/api/contract")
+    @GetMapping("/name")
     public List<Contract> getContractsByCustomerName(@RequestParam(name = "customerName") String name) {
         String[] names = name.split("\\s+");
         return contractService.getContractsByCustomerName(names[0],names[1]);
     }
 
-    @GetMapping("/api/contract/date")
+    @GetMapping("/date")
     public List<Contract> getContractsByStartDate(@RequestParam(name ="startDate") String startDate) throws ParseException {
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse(startDate);
         return contractService.getContractsByStartDate(date);
     }
 
-    @PostMapping(value = "/api/contract/addContract")
+    @GetMapping("/type")
+    public List<Contract> getContractsByContractType(@RequestParam(name = "contractType") String cotractType){
+        return contractService.getContractsByType(EnumUtils.findEnumInsensitiveCase(ContractType.class,cotractType));
+    }
+
+
+
+    @PostMapping(value = "/addContract")
     public Contract addContract(@RequestParam(value = "contractName", defaultValue = "", required = false) String contractName,
                                 @RequestParam("customerId") String customerId,
                                 @RequestParam("startDate") String date,
