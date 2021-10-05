@@ -2,6 +2,7 @@ package com.example.contracts.service;
 
 import com.example.contracts.models.Contract;
 import com.example.contracts.models.enums.ContractType;
+import com.example.contracts.models.enums.CustomerType;
 import com.example.contracts.repositories.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,15 @@ public class ContractService {
         return contractRepository.findByContractType(contractType);
     }
 
-    public Contract createContract(Contract contract){
+    public List<Contract> getContractsByCustomerType(CustomerType customerType){
+        return contractRepository.findByCustomerType( customerType);
+    }
 
+    public List<Contract> getContractsByCustomerId(Long id){
+        return contractRepository.findByCustomerId(id);
+    }
+
+    public Contract createContract(Contract contract){
         return contractRepository.save(contract);
     }
 }

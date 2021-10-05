@@ -6,6 +6,8 @@ import com.example.contracts.models.enums.ContractType;
 import com.example.contracts.models.enums.CustomerType;
 import com.example.contracts.repositories.ContractRepository;
 import com.example.contracts.repositories.CustomerRepository;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +20,6 @@ public class ContractsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ContractsApplication.class, args);
-
 	}
 
 	@Bean

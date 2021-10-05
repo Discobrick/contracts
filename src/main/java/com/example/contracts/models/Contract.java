@@ -1,7 +1,7 @@
 package com.example.contracts.models;
 
 import com.example.contracts.models.enums.ContractType;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,6 @@ public class Contract {
     private Date startDate;
 
     @ManyToOne
-    @JsonManagedReference
     private Customer customer;
 
     @Enumerated(value = EnumType.STRING)

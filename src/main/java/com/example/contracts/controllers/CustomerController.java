@@ -4,6 +4,7 @@ import com.example.contracts.models.Customer;
 import com.example.contracts.models.enums.CustomerType;
 import com.example.contracts.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.yaml.snakeyaml.util.EnumUtils;
 
@@ -27,15 +28,14 @@ public class CustomerController {
         return customerService.getUserById(Long.valueOf(id));
     }
 
-    @PostMapping(value ="/create")
-    public Customer createCustomer(@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName,@RequestParam("type") String type){
-          Customer newCustomer = new Customer(firstName,lastName, CustomerType.valueOf(type));
-        return customerService.createCustomer(newCustomer);
+    @PostMapping(value ="/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Customer createCustomer(@RequestBody Customer customer){
+        return customerService.createCustomer(customer);
     }
 
     @GetMapping("/type")
-    public List<Customer> getContractsByContractType(@RequestParam(name = "customerType") String customerType){
-        return customerService.getCustomerByType(EnumUtils.findEnumInsensitiveCase(CustomerType.class,customerType));
+    public List<Customer> getContractsByContractType(@RequestBody Customer customer){
+        return customerService.getCustomerByType(customer.getType());
     }
 
 }
