@@ -12,4 +12,5 @@ public interface ContractRepository extends JpaRepository<Contract,Long> {
     List<Contract> findByCustomerFirstNameOrCustomerLastName(String firstName, String lastName);
     List<Contract> findByStartDateAfter(Date date);
     List<Contract> findByContractType(ContractType contractType);
+
 }
