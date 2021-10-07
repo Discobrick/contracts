@@ -41,7 +41,7 @@ public class ContractController {
     @GetMapping("/")
     public Object getContractByMultiple(@RequestBody ContractDTO contractDTO){
         try{
-            return convertContractListToDtoList(contractService.getAllContractsByFilter(contractDTO));
+            return convertContractListToDtoList(contractService.getContractsByFilter(contractDTO));
         }catch (Exception e){
             return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         }
