@@ -1,6 +1,5 @@
 package com.example.contracts.service;
 
-
 import com.example.contracts.dto.ContractDTO;
 import com.example.contracts.models.Contract;
 import com.example.contracts.repositories.ContractRepository;
@@ -44,13 +43,8 @@ public class ContractService {
         return contractRepository.findAll();
     }
 
-    public List<Contract> getContractsByCustomerId(Long id) {
-        return contractRepository.findByCustomerId(id);
-    }
-
     public Contract createContract(Contract contract) {
         return contractRepository.save(contract);
     }
-
 
 }

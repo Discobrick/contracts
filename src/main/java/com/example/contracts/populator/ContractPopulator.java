@@ -19,9 +19,6 @@ public class ContractPopulator {
     @Autowired
     CustomerService customerService;
 
-    @Autowired
-    CustomerPopulator customerPopulator;
-
     public void convertContractEntityToDTO(Contract source, ContractDTO target){
         target.setContractId(source.getId());
         target.setContractName(source.getName());

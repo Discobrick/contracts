@@ -6,7 +6,6 @@ import com.example.contracts.models.Contract;
 
 import com.example.contracts.models.Customer;
 import com.example.contracts.populator.ContractPopulator;
-import com.example.contracts.populator.CustomerPopulator;
 import com.example.contracts.service.ContractService;
 import com.example.contracts.service.CustomerService;
 
@@ -35,8 +34,7 @@ public class ContractController {
     ContractService contractService;
     @Autowired
     CustomerService customerService;
-    @Autowired
-    CustomerPopulator customerPopulator;
+
     @Autowired
     ContractPopulator contractPopulator;
 
