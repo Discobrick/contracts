@@ -21,7 +21,7 @@ public class ContractService {
     CustomerService customerService;
 
 
-    public List<Contract> getContractsByFilter(ContractDTO contractDTO) {
+    public List<Contract> getAllContractsByFilter(ContractDTO contractDTO) {
 
         Specification<Contract> typeSpec = ContractSpecs.contractTypeEquals(contractDTO.getContractType());
         Specification<Contract> dateSpec = ContractSpecs.contractDateAfter(contractDTO.getStartDate());
