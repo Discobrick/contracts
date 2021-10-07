@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer,Long > {
      List<Customer> findByFirstNameAndLastName(String firstName, String lastName);
+     List<Customer> findByFirstNameContainsAndLastNameContains(String firstName, String lastName);
      List<Customer> findByType(CustomerType customerType);
+     Customer findDistinctBySsn(long ssn);
 }

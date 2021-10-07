@@ -1,5 +1,6 @@
 package com.example.contracts.service;
 
+
 import com.example.contracts.models.Contract;
 import com.example.contracts.models.enums.ContractType;
 import com.example.contracts.models.enums.CustomerType;
@@ -13,8 +14,16 @@ import java.util.List;
 
 @Service
 public class ContractService {
+
     @Autowired
     ContractRepository contractRepository;
+
+    @Autowired
+    CustomerService customerService;
+
+    public Contract getContractById(Long id){
+       return contractRepository.getById(id);
+    }
 
     public List<Contract> getContracts(){
         return contractRepository.findAll();
@@ -43,4 +52,8 @@ public class ContractService {
     public Contract createContract(Contract contract){
         return contractRepository.save(contract);
     }
+
+
+
+
 }
