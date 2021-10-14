@@ -1,6 +1,6 @@
 package com.example.contracts.repositories;
 
-import com.example.contracts.models.Contract;
+import com.example.contracts.domain.Contract;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

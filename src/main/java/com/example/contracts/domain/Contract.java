@@ -1,6 +1,6 @@
-package com.example.contracts.models;
+package com.example.contracts.domain;
 
-import com.example.contracts.models.enums.ContractType;
+import com.example.contracts.domain.enums.ContractType;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

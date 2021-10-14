@@ -1,8 +1,8 @@
 package com.example.contracts.repositories;
 
-import com.example.contracts.models.Contract;
-import com.example.contracts.models.enums.ContractType;
-import com.example.contracts.models.enums.CustomerType;
+import com.example.contracts.domain.Contract;
+import com.example.contracts.domain.enums.ContractType;
+import com.example.contracts.domain.enums.CustomerType;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.text.ParseException;

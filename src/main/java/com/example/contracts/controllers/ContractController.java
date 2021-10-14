@@ -2,9 +2,9 @@ package com.example.contracts.controllers;
 
 import com.example.contracts.dto.ContractDTO;
 import com.example.contracts.dto.CustomerDTO;
-import com.example.contracts.models.Contract;
+import com.example.contracts.domain.Contract;
 
-import com.example.contracts.models.Customer;
+import com.example.contracts.domain.Customer;
 import com.example.contracts.populator.ContractPopulator;
 import com.example.contracts.service.ContractService;
 import com.example.contracts.service.CustomerService;
@@ -67,8 +67,7 @@ public class ContractController {
     private Object convertContractListToDtoList(List<Contract> contracts2) {
         List<ContractDTO> retreivedContracts = new ArrayList<>();
         contracts2.forEach(contract -> {
-            ContractDTO contractDTO = new ContractDTO();
-            contractPopulator.convertContractEntityToDTO(contract, contractDTO);
+            ContractDTO contractDTO = contractPopulator.convertContractEntityToDTO(contract);
             retreivedContracts.add(contractDTO);
         });
         return retreivedContracts;

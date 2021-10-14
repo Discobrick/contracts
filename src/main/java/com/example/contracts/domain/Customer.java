@@ -1,6 +1,6 @@
-package com.example.contracts.models;
+package com.example.contracts.domain;
 
-import com.example.contracts.models.enums.CustomerType;
+import com.example.contracts.domain.enums.CustomerType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;

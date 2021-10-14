@@ -1,6 +1,6 @@
 package com.example.contracts.repositories;
 
-import com.example.contracts.models.Customer;
+import com.example.contracts.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

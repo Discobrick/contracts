@@ -1,9 +1,9 @@
 package com.example.contracts;
 
-import com.example.contracts.models.Contract;
-import com.example.contracts.models.Customer;
-import com.example.contracts.models.enums.ContractType;
-import com.example.contracts.models.enums.CustomerType;
+import com.example.contracts.domain.Contract;
+import com.example.contracts.domain.Customer;
+import com.example.contracts.domain.enums.ContractType;
+import com.example.contracts.domain.enums.CustomerType;
 import com.example.contracts.repositories.ContractRepository;
 import com.example.contracts.repositories.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;

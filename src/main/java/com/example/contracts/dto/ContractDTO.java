@@ -1,16 +1,12 @@
 package com.example.contracts.dto;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Builder
 public class ContractDTO {
-
 
     private Long contractId;
     private Long customerId;
